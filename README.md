@@ -1,131 +1,447 @@
-# RAMU ORBIT-DIPTA AI
-RAMU ORBIT,DIPTA AI - Personal Assistant Web &amp; Mobile App integrating Python, JavaScript, HTML, CSS with Voice, Animation &amp; Research Tools.
-# About authentication to GitHub
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-You can securely access your account's resources by authenticating to GitHub, using different credentials depending on where you authenticate.
+  <title>RAMU Web Design & Digital Services</title>
 
-## About authentication to GitHub
+  <meta name="description"
+        content="RAMU Web Design & Digital Services provides professional website design, web development and digital services.">
 
-To keep your account secure, you must authenticate before you can access certain resources on GitHub. When you authenticate to GitHub, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be.
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-You can access your resources in GitHub in a variety of ways: in the browser, via GitHub Desktop or another desktop application, with the API, or via the command line. Each way of accessing GitHub supports different modes of authentication.
+    html {
+      scroll-behavior: smooth;
+    }
 
-* Username and password (or social login) with two-factor authentication, or a passkey (GitHub Free, and GitHub Enterprise Cloud only)
-* Personal access token
-* SSH key
+    body {
+      font-family: Arial, sans-serif;
+      background: #08111f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-## Authenticating in your browser
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-If you're a member of an enterprise with managed users, you will authenticate to GitHub in your browser using your IdP. For more information, see [About Enterprise Managed Users](/en/enterprise-cloud@latest/admin/concepts/identity-and-access-management/enterprise-managed-users#how-do-managed-user-accounts-authenticate-to-github) in the GitHub Enterprise Cloud documentation.
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-If you're not a member of an enterprise with managed users, you will authenticate using your GitHub username and password, or a passkey. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 17, 31, 0.95);
+      border-bottom: 1px solid #233047;
+    }
 
-> \[!NOTE]
-> As of March 2023, GitHub required all users who contribute code on GitHub.com to enable one or more forms of two-factor authentication (2FA). If you were in an eligible group, you would have received a notification email when that group was selected for enrollment, marking the beginning of a 45-day 2FA enrollment period, and you would have seen banners asking you to enroll in 2FA on GitHub.com. If you didn't receive a notification, then you were not part of a group required to enable 2FA, though we strongly recommend it.
->
-> For more information about the 2FA enrollment rollout, see [this blog post](https://github.blog/2023-03-09-raising-the-bar-for-software-security-github-2fa-begins-march-13).
+    nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-If you need to use multiple accounts on GitHub.com, such as a personal account and a service account, you can quickly switch between your accounts without always needing to reauthenticate each time. For more information, see [Switching between accounts](/en/authentication/keeping-your-account-and-data-secure/switching-between-accounts).
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
 
-* **Username and password only**
-  * You'll create a password when you create your account on GitHub. We recommend that you use a password manager to generate a random and unique password. For more information, see [Creating a strong password](/en/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).
-  * If you have not enabled 2FA, GitHub may ask for additional verification when you first sign in from a new or unrecognized device, such as a new browser profile, a browser where the cookies have been deleted, or a new computer. For more information, see [Verifying new devices when signing in](/en/authentication/keeping-your-account-and-data-secure/verifying-new-devices-when-signing-in).
+    .logo span {
+      color: #8b5cf6;
+    }
 
-* **Social login**
-  * You'll authenticate with Google or Apple, which are the supported social login providers when you create your account on GitHub. We recommend that you also configure 2FA and add a passkey or a password as an additional account recovery mechanism.
-  * If you have an existing account created with a password, you can add your social login email to the account. This allows you to use your social login identity as a first-factor (password) replacement when you sign in to GitHub.
-  * You can unlink your social login identities from your GitHub email settings page. For more information, see [Unlinking your email address from a locked account](/en/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account)
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
 
-* **Two-factor authentication (2FA)** (recommended)
-  * If you enable two-factor authentication (2FA), after you sign in with social login or your username and password, you'll be prompted to enter a code from a time-based one-time password (TOTP) application on your mobile device or sent as a text message (SMS).
+    nav a {
+      color: #cbd5e1;
+    }
 
-  * After you configure 2FA, your account enters a check up period for 28 days. You can leave the check up period by successfully performing 2FA within those 28 days. If you don't perform 2FA in that timespan, you'll then be asked to perform 2FA inside one of your existing GitHub sessions.
+    nav a:hover {
+      color: white;
+    }
 
-  * If you cannot perform 2FA to pass the 28th day checkup, you will be provided a shortcut that lets you reconfigure your 2FA settings. You must reconfigure your settings before you can access the rest of GitHub. For more information, see [Accessing GitHub using two-factor authentication](/en/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#performing-2fa-when-signing-in-to-the-website) and [Configuring two-factor authentication](/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, #5134a955, transparent 35%),
+        radial-gradient(circle at 10% 80%, #008cff33, transparent 30%);
+    }
 
-  * In addition to authentication with a TOTP application or a text message, you can optionally add an alternative method of authentication with GitHub Mobile or a security key using WebAuthn. See [Configuring two-factor authentication using GitHub Mobile](/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) or [Configuring two-factor authentication using a security key](/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #8b5cf6;
+      border-radius: 30px;
+      color: #c4b5fd;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
 
-    > \[!NOTE]
-    > If you cannot use any recovery methods, you have permanently lost access to your account. However, you can unlink an email address tied to the locked account. The unlinked email address can then be linked to a new or existing account. For more information, see [Unlinking your email address from a locked account](/en/account-and-profile/how-tos/account-management/unlinking-your-email-address-from-a-locked-account).
+    h1 {
+      font-size: clamp(40px, 7vw, 70px);
+      line-height: 1.05;
+      max-width: 800px;
+    }
 
-* **Passkey**
-  * You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. See [About passkeys](/en/authentication/authenticating-with-a-passkey/about-passkeys).
+    h1 span {
+      color: #8b5cf6;
+    }
 
-* **SAML single sign-on**
-  * Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see [About authentication with single sign-on](/en/authentication/authenticating-with-single-sign-on/about-authentication-with-single-sign-on) in the GitHub Enterprise Cloud documentation.
+    .hero p {
+      color: #aab8ca;
+      max-width: 700px;
+      font-size: 18px;
+      margin: 22px 0 30px;
+    }
 
-### Session cookies
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-GitHub uses cookies to provide services and increase security. You can review details about GitHub's cookies in [GitHub Cookies](/en/site-policy/privacy-policies/github-cookies).
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
 
-* The gist.github.com and github.com domains use separate cookies.
-* GitHub typically marks a user session for deletion after two weeks of inactivity.
-* GitHub does not immediately delete a session when you sign out. Periodically, GitHub automatically deletes expired sessions.
+    .primary {
+      background: linear-gradient(90deg, #8b5cf6, #0284c7);
+    }
 
-## Authenticating with GitHub Desktop
+    .secondary {
+      background: #172338;
+      border: 1px solid #30405a;
+    }
 
-You can authenticate with GitHub Desktop using your browser. For more information, see [Authenticating to GitHub in GitHub Desktop](/en/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop).
+    section {
+      padding: 75px 0;
+    }
 
-## Authenticating with the API
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-You can authenticate with the API in different ways. For more information, see [Authenticating to the REST API](/en/rest/authentication/authenticating-to-the-rest-api).
+    .title h2 {
+      font-size: 35px;
+    }
 
-### Authenticating to the API with a personal access token
+    .title p {
+      color: #94a3b8;
+      margin-top: 8px;
+    }
 
-If you want to use the GitHub REST API for personal use, you can create a personal access token. If possible, GitHub recommends that you use a fine-grained personal access token instead of a personal access token (classic). For more information about creating a personal access token, see [Managing your personal access tokens](/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-### Authenticating to the API with an app
+    .card {
+      padding: 28px;
+      background: #101c2e;
+      border: 1px solid #26364e;
+      border-radius: 18px;
+      transition: 0.3s;
+    }
 
-If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a GitHub App. For more information, see [About authentication with a GitHub App](/en/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app).
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #8b5cf6;
+    }
 
-You can also create an OAuth token with an OAuth app to access the REST API. However, GitHub recommends that you use a GitHub App instead. GitHub Apps allow more control over the access and permission that the app has.
+    .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
 
-### Authenticating to the API in a GitHub Actions workflow
+    .card h3 {
+      margin-bottom: 10px;
+    }
 
-If you want to use the API in a GitHub Actions workflow, GitHub recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key.
+    .card p {
+      color: #9fb0c5;
+    }
 
-Note that `GITHUB_TOKEN` can only access resources within the repository that contains the workflow. If you need to make changes to resources outside of the workflow repository, you will need to use a personal access token or GitHub App.
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
 
-For more information, see [Use GITHUB\_TOKEN for authentication in workflows](/en/actions/tutorials/authenticate-with-github_token).
+    .box {
+      background: #0e1a2b;
+      border: 1px solid #26364e;
+      padding: 30px;
+      border-radius: 18px;
+    }
 
-## Authenticating with the command line
+    .box p {
+      color: #aab8ca;
+      margin-top: 10px;
+    }
 
-You can access repositories on GitHub from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see [About remote repositories](/en/get-started/git-basics/about-remote-repositories).
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #8b5cf633, #0284c733);
+      border: 1px solid #6852b866;
+      border-radius: 22px;
+      padding: 50px 20px;
+    }
 
-### HTTPS
+    .contact p {
+      color: #b9c6d8;
+      margin: 12px auto 25px;
+    }
 
-You can work with all repositories on GitHub over HTTPS, even if you are behind a firewall or proxy.
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid #233047;
+      color: #7f91a8;
+    }
 
-If you authenticate with GitHub CLI, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with GitHub CLI, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+    @media (max-width: 750px) {
 
-If you authenticate without GitHub CLI, you must authenticate with a personal access token. When Git prompts you for your password, enter your personal access token. Alternatively, you can use a credential helper like [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md). Password-based authentication for Git has been removed in favor of more secure authentication methods. For more information, see [Managing your personal access tokens](/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). Every time you use Git to authenticate with GitHub, you'll be prompted to enter your credentials, unless you cache them with a [credential helper](/en/get-started/git-basics/caching-your-github-credentials-in-git).
+      nav ul {
+        display: none;
+      }
 
-### SSH
+      .services,
+      .about {
+        grid-template-columns: 1fr;
+      }
 
-You can work with all repositories on GitHub over SSH, although firewalls and proxies might refuse to allow SSH connections.
+      .hero {
+        min-height: 75vh;
+      }
+    }
+  </style>
+</head>
 
-If you authenticate with GitHub CLI, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If GitHub CLI does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on GitHub.com. Then, you can either authenticate with a personal access token or via the web browser. For more information about authenticating with GitHub CLI, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+<body>
 
-If you authenticate without GitHub CLI, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on GitHub.com. For more information, see [Generating a new SSH key and adding it to the ssh-agent](/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). Every time you use Git to authenticate with GitHub, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
 
-### Authorizing for SAML single sign-on
+        <a href="#home" class="logo">
+          RAMU<span>.</span>
+        </a>
 
-To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see [Authorizing a personal access token for use with single sign-on](/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-a-personal-access-token-for-use-with-single-sign-on) or [Authorizing an SSH key for use with single sign-on](/en/enterprise-cloud@latest/authentication/authenticating-with-single-sign-on/authorizing-an-ssh-key-for-use-with-single-sign-on) in the GitHub Enterprise Cloud documentation.
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
 
-## GitHub's token formats
+      </nav>
+    </div>
+  </header>
 
-GitHub issues tokens that begin with a prefix to indicate the token's type.
 
-> \[!NOTE]
-> Starting April 27, 2026, GitHub began a staged rollout of a stateless format (`ghs_APPID_JWT`) to all newly minted GitHub App installation tokens, making them more performant and improving the reliability of our API surface. If your application expects or relies on installation tokens being exactly 40 characters long, it may not handle this new token format correctly. You can now validate your apps and workflows using a temporary request header that lets you enable the token format on demand. For more information about the temporary header, see [the GitHub blog](https://github.blog/changelog/2026-05-15-github-app-installation-tokens-per-request-override-header).
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
 
-| Token type                                 | Prefix        | More information                                                                                                                                                                   |
-| :----------------------------------------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Personal access token (classic)            | `ghp_`        | [Managing your personal access tokens](/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)      |
-| Fine-grained personal access token         | `github_pat_` | [Managing your personal access tokens](/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) |
-| OAuth access token                         | `gho_`        | [Authorizing OAuth apps](/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)                                                                                           |
-| User access token for a GitHub App         | `ghu_`        | [Authenticating with a GitHub App on behalf of a user](/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)        |
-| Installation access token for a GitHub App | `ghs_`        | [Authenticating as a GitHub App installation](/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)                          |
-| Refresh token for a GitHub App             | `ghr_`        | [Refreshing user access tokens](/en/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)                                                      |
+      <div class="badge">
+        Web Design • Development • Digital Services
+      </div>
 
-For more information GitHub's token types and their management, see [GitHub credential types reference](/en/organizations/managing-programmatic-access-to-your-organization/github-credential-types).
+      <h1>
+        Modern Websites for
+        <span>Growing Businesses.</span>
+      </h1>
+
+      <p>
+        RAMU Web Design & Digital Services provides
+        clean, responsive and professional web solutions
+        for businesses, entrepreneurs and individuals.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#contact" class="btn primary">
+          Get Started
+        </a>
+
+        <a href="#services" class="btn secondary">
+          Our Services
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="container">
+
+      <div class="title">
+        <h2>Our Services</h2>
+        <p>Professional digital solutions for your business.</p>
+      </div>
+
+      <div class="services">
+
+        <div class="card">
+
+          <div class="icon">🌐</div>
+
+          <h3>Website Design</h3>
+
+          <p>
+            Professional and responsive websites
+            for businesses, portfolios and personal brands.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">💻</div>
+
+          <h3>Web Development</h3>
+
+          <p>
+            Modern HTML, CSS and JavaScript
+            websites with mobile-friendly interfaces.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="icon">📈</div>
+
+          <h3>Digital Services</h3>
+
+          <p>
+            Website updates, online presence
+            and digital support for small businesses.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="title">
+        <h2>About RAMU</h2>
+        <p>Simple. Professional. Customer-focused.</p>
+      </div>
+
+      <div class="about">
+
+        <div class="box">
+
+          <h3>What We Do</h3>
+
+          <p>
+            RAMU Web Design & Digital Services focuses
+            on creating responsive and professional
+            websites for businesses and individuals.
+          </p>
+
+        </div>
+
+
+        <div class="box">
+
+          <h3>Why Choose RAMU?</h3>
+
+          <p>
+            Mobile-first design, clean code,
+            practical solutions and clear communication
+            with clients.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="contact">
+
+        <h2>Let's Work Together</h2>
+
+        <p>
+          Have a project in mind?
+          Contact RAMU Web Design & Digital Services.
+        </p>
+
+        <!-- CHANGE THIS EMAIL TO YOUR REAL EMAIL -->
+        <a
+          href="mailto:YOUR-EMAIL@example.com"
+          class="btn primary">
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      © 2026 RAMU Web Design & Digital Services.
+      All Rights Reserved.
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
